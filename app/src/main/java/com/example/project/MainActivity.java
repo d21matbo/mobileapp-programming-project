@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(id == R.id.action_about) {
             Log.d("MainActivity", String.format("Clicked: %s", item));
-            //TODO: Show about page.
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
             return true;
         }
 
