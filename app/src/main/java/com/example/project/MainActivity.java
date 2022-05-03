@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_about) {
-            Log.d("MainActivity", String.format("Clicked: %s", item));
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
             return true;
