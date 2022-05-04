@@ -107,7 +107,8 @@
                 android:text="@string/detail_static_location"
                 app:layout_constraintStart_toEndOf="@+id/detail_icon_map"
                 app:layout_constraintTop_toTopOf="@+id/detail_icon_map"
-                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_map"/>
+                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_map"
+                android:layout_marginLeft="2dp"/>
             <TextView
                 android:id="@+id/detail_location"
                 android:layout_width="wrap_content"
@@ -135,7 +136,8 @@
                 android:text="@string/detail_static_number"
                 app:layout_constraintStart_toEndOf="@+id/detail_icon_phone"
                 app:layout_constraintTop_toTopOf="@+id/detail_icon_phone"
-                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_phone"/>
+                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_phone"
+                android:layout_marginLeft="2dp"/>
             <TextView
                 android:id="@+id/detail_number"
                 android:layout_width="wrap_content"
@@ -154,7 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_dialog_email"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent" />
             <TextView
                 android:id="@+id/detail_static_mail"
                 android:layout_width="wrap_content"
@@ -162,7 +164,8 @@
                 android:text="@string/detail_static_mail"
                 app:layout_constraintStart_toEndOf="@+id/detail_icon_mail"
                 app:layout_constraintTop_toTopOf="@+id/detail_icon_mail"
-                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_mail"/>
+                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_mail"
+                android:layout_marginLeft="2dp"/>
             <TextView
                 android:id="@+id/detail_mail"
                 android:layout_width="wrap_content"
