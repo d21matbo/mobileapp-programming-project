@@ -6,4 +6,171 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
+    <ImageView
+        android:id="@+id/detail_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"/>
+    <TextView
+        android:id="@+id/detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Namn Namnson"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_image"
+        app:layout_constraintStart_toStartOf="@+id/detail_image"
+        app:layout_constraintEnd_toEndOf="@+id/detail_image"
+        android:layout_marginTop="5dp"/>
+    
+    <LinearLayout
+        android:id="@+id/detail_layout_posid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/detail_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/detail_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Technician Tier 1"
+            android:textSize="18sp"
+            android:layout_marginEnd="15dp"/>
+        <TextView
+            android:id="@+id/detail_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="ID: 00000"
+            android:textSize="18sp"/>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/detail_layout_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/detail_layout_posid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/detail_dob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Date of Birth: 00000000"
+            android:textSize="18sp"
+            android:layout_marginEnd="15dp"/>
+        <TextView
+            android:id="@+id/detail_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Age: 00"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_layout_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/detail_layout_birth"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:id="@+id/detail_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact information"
+            android:textSize="20sp" />
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/detail_icon_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_mapmode"
+                app:layout_constraintTop_toBottomOf="@id/detail_contact"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/detail_static_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_static_location"
+                app:layout_constraintStart_toEndOf="@+id/detail_icon_map"
+                app:layout_constraintTop_toTopOf="@+id/detail_icon_map"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_map"/>
+            <TextView
+                android:id="@+id/detail_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="LOCATION"
+                app:layout_constraintStart_toEndOf="@id/detail_static_location"
+                app:layout_constraintTop_toTopOf="@id/detail_static_location"
+                android:layout_marginLeft="5dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/detail_icon_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_call"
+                app:layout_constraintTop_toBottomOf="@id/detail_contact"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/detail_static_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_static_number"
+                app:layout_constraintStart_toEndOf="@+id/detail_icon_phone"
+                app:layout_constraintTop_toTopOf="@+id/detail_icon_phone"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_phone"/>
+            <TextView
+                android:id="@+id/detail_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="00-0 0000 00"
+                app:layout_constraintStart_toEndOf="@id/detail_static_number"
+                app:layout_constraintTop_toTopOf="@id/detail_static_number"
+                android:layout_marginLeft="5dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/detail_icon_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_dialog_email"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/detail_static_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_static_mail"
+                app:layout_constraintStart_toEndOf="@+id/detail_icon_mail"
+                app:layout_constraintTop_toTopOf="@+id/detail_icon_mail"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_icon_mail"/>
+            <TextView
+                android:id="@+id/detail_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="namn.nam@something.nihility.com"
+                app:layout_constraintStart_toEndOf="@id/detail_static_mail"
+                app:layout_constraintTop_toTopOf="@id/detail_static_mail"
+                android:layout_marginLeft="5dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
