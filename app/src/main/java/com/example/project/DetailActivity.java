@@ -43,12 +43,12 @@ public class DetailActivity extends AppCompatActivity {
     private void setViews(){
         nameView.setText(getIntent().getExtras().getString("Name", "Missing Name"));
         positionView.setText(getIntent().getExtras().getString("Position", "Missing"));
-        idView.setText(getIntent().getExtras().getString("Id","Missing"));
         dobView.setText(getIntent().getExtras().getString("DoB", "Missing"));
-        //ageView
-        locationView.setText(getIntent().getExtras().getString("Location", "Missing"));
-        numberView.setText(getIntent().getExtras().getString("Number", "Missing"));
+        idView.setText(String.valueOf(getIntent().getExtras().getInt("Id")));
+        ageView.setText(String.valueOf(getIntent().getExtras().getInt("Age")));
         mailView.setText(getIntent().getExtras().getString("Mail", "Missing"));
+        locationView.setText(getIntent().getExtras().getString("Location", "Missing"));
+        numberView.setText(String.valueOf(getIntent().getExtras().getInt("Number")));
 
     }
 }
