@@ -13,15 +13,18 @@ import java.util.List;
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
 
     private List<Employee> employees = new ArrayList<Employee>();
+    private ProjectOnClickListener onClickListener;
 
-    public ProjectAdapter(List<Employee> employees) {
+    public ProjectAdapter(List<Employee> employees, RecyclerView recyclerView) {
         this.employees = employees;
+        onClickListener = new ProjectOnClickListener(recyclerView);
     }
 
     @NonNull
     @Override
     public ProjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        view.setOnClickListener(onClickListener);
         return new ProjectViewHolder(view);
     }
 
