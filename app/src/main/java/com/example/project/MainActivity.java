@@ -18,6 +18,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private List<Employee> employees = new ArrayList<Employee>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        List<Employee> employees = new ArrayList<Employee>();
         employees.add(new Employee("Adam A", "Technician Tier 1"));
         employees.add(new Employee("Bertil B", "Technician Tier 2"));
         employees.add(new Employee("Ceria C", "Technician Tier 2"));
@@ -50,6 +51,18 @@ public class MainActivity extends AppCompatActivity {
 
         if(id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
+
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.temp_test) {
+            Intent intent = new Intent(this, DetailActivity.class);
+
+            //Tmp code
+            intent.putExtra("Name", employees.get(0).getName());
+            intent.putExtra("Position", employees.get(0).getPosition());
+
             startActivity(intent);
             return true;
         }
