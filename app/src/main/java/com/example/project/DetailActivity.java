@@ -1,11 +1,10 @@
 package com.example.project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -25,6 +24,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         findViews();
+        setViews();
     }
 
     //A method that groups the finding of the wanted views in one place.
@@ -38,5 +38,17 @@ public class DetailActivity extends AppCompatActivity {
         locationView = findViewById(R.id.detail_location);
         numberView = findViewById(R.id.detail_number);
         mailView = findViewById(R.id.detail_mail);
+    }
+
+    private void setViews(){
+        nameView.setText(getIntent().getExtras().getString("Name", "Missing Name"));
+        positionView.setText(getIntent().getExtras().getString("Position", "Missing"));
+        idView.setText(getIntent().getExtras().getString("Id","Missing"));
+        dobView.setText(getIntent().getExtras().getString("DoB", "Missing"));
+        //ageView
+        locationView.setText(getIntent().getExtras().getString("Location", "Missing"));
+        numberView.setText(getIntent().getExtras().getString("Number", "Missing"));
+        mailView.setText(getIntent().getExtras().getString("Mail", "Missing"));
+
     }
 }
