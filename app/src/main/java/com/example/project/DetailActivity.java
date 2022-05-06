@@ -48,7 +48,7 @@ public class DetailActivity extends AppCompatActivity {
         ageView.setText(String.valueOf(getIntent().getExtras().getInt("Age")));
         mailView.setText(getIntent().getExtras().getString("Mail", "Missing"));
         locationView.setText(getIntent().getExtras().getString("Location", "Missing"));
-        numberView.setText(String.valueOf(getIntent().getExtras().getInt("Number")));
+        numberView.setText(getIntent().getExtras().getString("Number"));
 
     }
 }

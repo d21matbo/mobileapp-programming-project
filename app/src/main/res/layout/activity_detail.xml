@@ -160,7 +160,7 @@
                 android:id="@+id/detail_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="00-0 0000 00"
+                tools:text="00-0 0000-00"
                 app:layout_constraintStart_toEndOf="@id/detail_static_number"
                 app:layout_constraintTop_toTopOf="@id/detail_static_number"
                 android:layout_marginStart="5dp"/>
