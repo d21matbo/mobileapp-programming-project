@@ -27,14 +27,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        employees.add(new Employee("Kanj-ik Norin","Executive Director", 10010, new DoB(19900716), "Sweden", 789123, "kanj.nori@something.nihility.com"));
         employees.add(new Employee("Adam A", "Technician Tier 1"));
         employees.add(new Employee("Bertil B", "Technician Tier 2"));
         employees.add(new Employee("Ceria C", "Technician Tier 2"));
         employees.add(new Employee("Dean D", "Sales & Store Tier 1"));
         employees.add(new Employee("Eva E", "Sales & Store Tier 2"));
 
-        ProjectAdapter adapter = new ProjectAdapter(employees);
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        ProjectAdapter adapter = new ProjectAdapter(employees, recyclerView);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -51,17 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
-
-            startActivity(intent);
-            return true;
-        }
-
-        if (id == R.id.temp_test) {
-            Intent intent = new Intent(this, DetailActivity.class);
-
-            //Tmp code
-            intent.putExtra("Name", employees.get(0).getName());
-            intent.putExtra("Position", employees.get(0).getPosition());
 
             startActivity(intent);
             return true;
