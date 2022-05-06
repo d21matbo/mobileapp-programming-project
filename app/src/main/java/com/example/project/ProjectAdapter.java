@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,17 @@ import java.util.List;
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
 
     private List<Employee> employees = new ArrayList<Employee>();
-    private ProjectOnClickListener onClickListener;
+    private RecyclerView recyclerView;
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            sendIntent(recyclerView.getChildAdapterPosition(view));
+        }
+    };
 
     public ProjectAdapter(List<Employee> employees, RecyclerView recyclerView) {
         this.employees = employees;
-        onClickListener = new ProjectOnClickListener(recyclerView);
+        this.recyclerView = recyclerView;
     }
 
     @NonNull
@@ -38,5 +45,20 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
     @Override
     public int getItemCount() {
         return employees.size();
+    }
+
+    private void sendIntent(int position) {
+        Intent intent = new Intent(recyclerView.getContext(), DetailActivity.class);
+
+        intent.putExtra("Name", employees.get(position).getName());
+        intent.putExtra("Position", employees.get(position).getPosition());
+        intent.putExtra("DoB", employees.get(position).getDob());
+        intent.putExtra("Id", employees.get(position).getId());
+        intent.putExtra("Age", employees.get(position).getAge());
+        intent.putExtra("Mail", employees.get(position).getMail());
+        intent.putExtra("Location", employees.get(position).getLocation());
+        intent.putExtra("Number", employees.get(position).getNumber());
+
+        recyclerView.getContext().startActivity(intent);
     }
 }
