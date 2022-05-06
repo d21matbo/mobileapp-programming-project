@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Project</string>
     <string name="show_about_page">Show about page</string>
+    <string name="detail_static_Id">ID:</string>
     <string name="detail_static_mail">E-Mail:</string>
     <string name="detail_static_number">Number:</string>
     <string name="detail_static_location">Location:</string>
+    <string name="detail_static_age">Age:</string>
+    <string name="detail_static_dob">Date of Birth:</string>
 </resources>

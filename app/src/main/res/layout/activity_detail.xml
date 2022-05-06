@@ -43,10 +43,16 @@
             android:textSize="18sp"
             android:layout_marginEnd="15dp"/>
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_static_Id"
+            android:layout_marginEnd="3dp"
+            android:textSize="18sp"/>
+        <TextView
             android:id="@+id/detail_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="ID: 00000"
+            tools:text="00000"
             android:textSize="18sp"/>
     </LinearLayout>
     
@@ -60,17 +66,29 @@
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_static_dob"
+            android:textSize="18sp"
+            android:layout_marginEnd="3dp"/>
+        <TextView
             android:id="@+id/detail_dob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Date of Birth: 00000000"
+            tools:text="00000000"
             android:textSize="18sp"
             android:layout_marginEnd="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_static_age"
+            android:textSize="18sp"
+            android:layout_marginEnd="3dp"/>
         <TextView
             android:id="@+id/detail_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Age: 00"
+            tools:text="00"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -82,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@id/detail_layout_birth"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="70dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginStart="10dp">
         <TextView
             android:id="@+id/detail_contact"
             android:layout_width="wrap_content"
@@ -108,7 +126,7 @@
                 app:layout_constraintStart_toEndOf="@+id/detail_icon_map"
                 app:layout_constraintTop_toTopOf="@+id/detail_icon_map"
                 app:layout_constraintBottom_toBottomOf="@+id/detail_icon_map"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginStart="2dp"/>
             <TextView
                 android:id="@+id/detail_location"
                 android:layout_width="wrap_content"
@@ -116,7 +134,7 @@
                 tools:text="LOCATION"
                 app:layout_constraintStart_toEndOf="@id/detail_static_location"
                 app:layout_constraintTop_toTopOf="@id/detail_static_location"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginStart="5dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -137,7 +155,7 @@
                 app:layout_constraintStart_toEndOf="@+id/detail_icon_phone"
                 app:layout_constraintTop_toTopOf="@+id/detail_icon_phone"
                 app:layout_constraintBottom_toBottomOf="@+id/detail_icon_phone"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginStart="2dp"/>
             <TextView
                 android:id="@+id/detail_number"
                 android:layout_width="wrap_content"
@@ -145,7 +163,7 @@
                 tools:text="00-0 0000 00"
                 app:layout_constraintStart_toEndOf="@id/detail_static_number"
                 app:layout_constraintTop_toTopOf="@id/detail_static_number"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginStart="5dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -165,7 +183,7 @@
                 app:layout_constraintStart_toEndOf="@+id/detail_icon_mail"
                 app:layout_constraintTop_toTopOf="@+id/detail_icon_mail"
                 app:layout_constraintBottom_toBottomOf="@+id/detail_icon_mail"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginStart="2dp"/>
             <TextView
                 android:id="@+id/detail_mail"
                 android:layout_width="wrap_content"
@@ -173,7 +191,7 @@
                 tools:text="namn.nam@something.nihility.com"
                 app:layout_constraintStart_toEndOf="@id/detail_static_mail"
                 app:layout_constraintTop_toTopOf="@id/detail_static_mail"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginStart="5dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
