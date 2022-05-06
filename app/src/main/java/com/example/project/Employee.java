@@ -27,6 +27,11 @@ public class Employee {
         this.position = position;
     }
 
+    private String formatNumber(){
+        String s = String.valueOf(number);
+        return String.format("%s-%s %s-%s", s.substring(0,2), s.charAt(2),s.substring(3,7), s.substring(7,9));
+    }
+
     public String getName() {
         return name;
     }
@@ -51,8 +56,8 @@ public class Employee {
         return location;
     }
 
-    public int getNumber() {
-        return number;
+    public String getNumber() {
+        return formatNumber();
     }
 
     public String getMail() {
