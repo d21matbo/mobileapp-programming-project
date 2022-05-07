@@ -12,13 +12,20 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
+
+    private final String JSON_FILE = "employees.json";
 
     private List<Employee> employees = new ArrayList<Employee>();
+    private ProjectAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +34,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        employees.add(new Employee("Kanj-ik Norin","Executive Director", 10010, new DoB(19900716), "Germany", 123456789, "kanj.nori@something.nihility.com"));
-        employees.add(new Employee("Anders Andersson", "Technician Tier 2", 31015, new DoB(19970715), "Sweden", 987654321, "anders.ande@something.nihility.com"));
-        employees.add(new Employee("Adam A", "Technician Tier 1"));
-        employees.add(new Employee("Bertil B", "Technician Tier 2"));
-        employees.add(new Employee("Ceria C", "Technician Tier 2"));
-        employees.add(new Employee("Dean D", "Sales & Store Tier 1"));
-        employees.add(new Employee("Eva E", "Sales & Store Tier 2"));
-
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        ProjectAdapter adapter = new ProjectAdapter(recyclerView);
-        adapter.setEmployees(employees);
+        adapter = new ProjectAdapter(recyclerView);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        new JsonFile(this, this).execute(JSON_FILE);
     }
 
     @Override
@@ -60,5 +60,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPostExecute(String json) {
+        if (json != null) {
+            Gson gson = new Gson();
+            Type type = new TypeToken<List<Employee>>(){}.getType();
+            employees = gson.fromJson(json, type);
+            adapter.setEmployees(employees);
+            adapter.notifyDataSetChanged();
+        }
     }
 }

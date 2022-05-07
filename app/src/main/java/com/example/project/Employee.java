@@ -1,13 +1,20 @@
 package com.example.project;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Employee {
+
     private String name;
+    @SerializedName("company")
     private String position;
+    @SerializedName("size")
     private int id;
     private DoB dob;
     private int age; //Derived
     private String location;
+    @SerializedName("cost")
     private int number;
+    @SerializedName("category")
     private String mail;
 
     public Employee(String name, String position, int id, DoB dob, String location, int number, String mail) {
@@ -49,7 +56,7 @@ public class Employee {
     }
 
     public int getAge() {
-        return age;
+        return dob.getCurrentAge();
     }
 
     public String getLocation() {
