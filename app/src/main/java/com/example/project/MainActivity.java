@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        employees.add(new Employee("Kanj-ik Norin","Executive Director", 10010, new DoB(19900716), "Sweden", 789123, "kanj.nori@something.nihility.com"));
+        employees.add(new Employee("Kanj-ik Norin","Executive Director", 10010, new DoB(19900716), "Germany", 123456789, "kanj.nori@something.nihility.com"));
+        employees.add(new Employee("Anders Andersson", "Technician Tier 2", 31015, new DoB(19970715), "Sweden", 987654321, "anders.ande@something.nihility.com"));
         employees.add(new Employee("Adam A", "Technician Tier 1"));
         employees.add(new Employee("Bertil B", "Technician Tier 2"));
         employees.add(new Employee("Ceria C", "Technician Tier 2"));
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         employees.add(new Employee("Eva E", "Sales & Store Tier 2"));
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        ProjectAdapter adapter = new ProjectAdapter(employees, recyclerView);
+        ProjectAdapter adapter = new ProjectAdapter(recyclerView);
+        adapter.setEmployees(employees);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

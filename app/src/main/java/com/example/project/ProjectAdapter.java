@@ -22,8 +22,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
         }
     };
 
-    public ProjectAdapter(List<Employee> employees, RecyclerView recyclerView) {
-        this.employees = employees;
+    public ProjectAdapter(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
     }
 
@@ -45,6 +44,10 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
     @Override
     public int getItemCount() {
         return employees.size();
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     private void sendIntent(int position) {
