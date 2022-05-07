@@ -10,7 +10,6 @@ public class Employee {
     @SerializedName("size")
     private int id;
     private DoB dob;
-    private int age; //Derived
     private String location;
     @SerializedName("cost")
     private int number;
@@ -25,8 +24,6 @@ public class Employee {
         this.location = location;
         this.number = number;
         this.mail = mail;
-
-        age = dob.getCurrentAge();
     }
 
     public Employee(String name, String position) {
