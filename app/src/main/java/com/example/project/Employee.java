@@ -16,13 +16,14 @@ public class Employee {
     private String mail;
     private Auxdata auxdata;
 
-    public Employee(String name, String position, int id, DoB dob, String location, int number, String mail) {
+    public Employee(int id, String name, String position, String location, int number, String mail, int dob) {
+        this.id = id;
         this.name = name;
         this.position = position;
-        this.id = id;
         this.location = location;
         this.number = number;
         this.mail = mail;
+        auxdata = new Auxdata(dob);
     }
 
     public Employee(String name, String position) {
