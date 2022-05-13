@@ -12,7 +12,7 @@ public class DatabaseTable {
     }
 
     static final String SQL_CREATE_TABLE_EMPLOYEE =
-            String.format("CREATE TABLE %s (%s INT PRIMARY KEY, %s TEXT, %s TEXT, %s TEXT, %s DATE)",
+            String.format("CREATE TABLE %s (%s INT PRIMARY KEY, %s TEXT, %s TEXT, %s TEXT, %s INT)",
                     SQLEmployee.TABLE_NAME,
                     SQLEmployee.COLUMN_ID,
                     SQLEmployee.COLUMN_NAME,
