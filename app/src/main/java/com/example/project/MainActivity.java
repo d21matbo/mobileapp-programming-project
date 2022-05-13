@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             return true;
         }
         if(id == R.id.action_update) {
-            writeSQLData();
+            readSQLData();
+            //writeSQLData();
             //new JsonFile(this, this).execute(JSON_FILE);
             //TODO: add Json code that works with internet data.
         }
@@ -111,8 +112,18 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         );
         List<Employee> temp = new ArrayList<>();
         while (cursor.moveToNext()) {
-            //temp.add(new Employee());
-            //TODO: Think that all fields from employee is needed in the db
+            temp.add(new Employee(
+                    cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_NAME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_POSITION)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_LOCATION)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_NUMBER)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_MAIL)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_DOB))
+                    ));
         }
+        employees.clear();
+        employees.addAll(temp);
+        adapter.notifyDataSetChanged();
     }
 }
