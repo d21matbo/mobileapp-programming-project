@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         setSupportActionBar(toolbar);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        adapter = new ProjectAdapter(recyclerView);
+        adapter = new ProjectAdapter(employees);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -67,8 +67,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         if (json != null) {
             Gson gson = new Gson();
             Type type = new TypeToken<List<Employee>>(){}.getType();
-            employees = gson.fromJson(json, type);
-            adapter.setEmployees(employees);
+            ArrayList<Employee> fetchedList = gson.fromJson(json, type);
+            employees.clear();
+            employees.addAll(fetchedList);
+
             adapter.notifyDataSetChanged();
         }
     }
