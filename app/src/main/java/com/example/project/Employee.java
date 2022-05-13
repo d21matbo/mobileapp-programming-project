@@ -9,18 +9,17 @@ public class Employee {
     private String position;
     @SerializedName("size")
     private int id;
-    private DoB dob;
     private String location;
     @SerializedName("cost")
     private int number;
     @SerializedName("category")
     private String mail;
+    private Auxdata auxdata;
 
     public Employee(String name, String position, int id, DoB dob, String location, int number, String mail) {
         this.name = name;
         this.position = position;
         this.id = id;
-        this.dob = dob;
         this.location = location;
         this.number = number;
         this.mail = mail;
@@ -49,11 +48,11 @@ public class Employee {
     }
 
     public String getDob() {
-        return dob.getDoB();
+        return auxdata.dob().getDoB();
     }
 
     public int getAge() {
-        return dob.getCurrentAge();
+            return auxdata.dob().getCurrentAge();
     }
 
     public String getLocation() {
