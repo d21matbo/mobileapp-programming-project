@@ -1,6 +1,9 @@
 package com.example.project;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         setSupportActionBar(toolbar);
 
         databaseHelper = new DatabaseHelper(this);
+        Log.d("MainActivity", DatabaseTable.SQL_CREATE_TABLE_EMPLOYEE);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         adapter = new ProjectAdapter(employees);
@@ -62,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             return true;
         }
         if(id == R.id.action_update) {
-            new JsonFile(this, this).execute(JSON_FILE);
+            writeSQLData();
+            //new JsonFile(this, this).execute(JSON_FILE);
             //TODO: add Json code that works with internet data.
         }
 
@@ -83,10 +88,29 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     }
 
     private void writeSQLData() {
-
+        for (Employee e: employees) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DatabaseTable.SQLEmployee.COLUMN_ID, e.getId());
+            contentValues.put(DatabaseTable.SQLEmployee.COLUMN_NAME, e.getName());
+            contentValues.put(DatabaseTable.SQLEmployee.COLUMN_POSITION, e.getPosition());
+            contentValues.put(DatabaseTable.SQLEmployee.COLUMN_LOCATION, e.getLocation());
+            contentValues.put(DatabaseTable.SQLEmployee.COLUMN_DOB, e.getDob());
+            databaseHelper.getWritableDatabase().insert(
+                    DatabaseTable.SQLEmployee.TABLE_NAME,
+                    null,
+                    contentValues);
+        }
     }
 
     private void readSQLData() {
-
+        @SuppressLint("Recycle")
+        Cursor cursor = databaseHelper.getReadableDatabase().rawQuery(
+                "SELECT * FROM " + DatabaseTable.SQLEmployee.TABLE_NAME, null, null
+        );
+        List<Employee> temp = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            //temp.add(new Employee());
+            //TODO: Think that all fields from employee is needed in the db
+        }
     }
 }
