@@ -22,4 +22,8 @@ public class DoB {
         String s = String.valueOf(dateOfBirth);
         return String.format("%s-%s-%s", s.substring(0, 4), s.substring(4, 6), s.substring(6, 8));
     }
+
+    public int getDateOfBirthRaw() {
+        return dateOfBirth;
+    }
 }
