@@ -6,7 +6,11 @@ import java.util.Date;
 
 public class DoB {
 
-    private int dateOfBirth;
+    private final int dateOfBirth;
+
+    public DoB(int dob) {
+        dateOfBirth = dob;
+    }
 
     public int getCurrentAge() {
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
