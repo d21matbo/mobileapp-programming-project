@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private final List<Employee> employees = new ArrayList<Employee>();
     private ProjectAdapter adapter;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        databaseHelper = new DatabaseHelper(this);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         adapter = new ProjectAdapter(employees);
@@ -77,5 +80,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
             adapter.notifyDataSetChanged();
         }
+    }
+
+    private void writeSQLData() {
+
+    }
+
+    private void readSQLData() {
+
     }
 }
