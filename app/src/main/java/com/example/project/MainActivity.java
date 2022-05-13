@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private final String JSON_FILE = "employees.json";
 
-    private List<Employee> employees = new ArrayList<Employee>();
+    private final List<Employee> employees = new ArrayList<Employee>();
     private ProjectAdapter adapter;
 
     @Override
@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
             startActivity(intent);
             return true;
+        }
+        if(id == R.id.action_update) {
+            new JsonFile(this, this).execute(JSON_FILE);
+            //TODO: add Json code that works with internet data.
         }
 
         return super.onOptionsItemSelected(item);
