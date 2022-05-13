@@ -52,6 +52,10 @@ public class Employee {
         return auxdata.getDob().getDateOfBirth();
     }
 
+    public int getDobRaw() {
+        return auxdata.getDob().getDateOfBirthRaw();
+    }
+
     public int getAge() {
             return auxdata.getDob().getCurrentAge();
     }
