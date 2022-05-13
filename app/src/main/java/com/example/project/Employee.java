@@ -49,11 +49,11 @@ public class Employee {
     }
 
     public String getDob() {
-        return auxdata.dob().getDoB();
+        return auxdata.getDob().getDateOfBirth();
     }
 
     public int getAge() {
-            return auxdata.dob().getCurrentAge();
+            return auxdata.getDob().getCurrentAge();
     }
 
     public String getLocation() {
