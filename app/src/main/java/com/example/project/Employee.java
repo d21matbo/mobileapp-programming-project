@@ -64,6 +64,10 @@ public class Employee {
         return formatNumber();
     }
 
+    public int getNumberRaw() {
+        return number;
+    }
+
     public String getMail() {
         return mail;
     }
