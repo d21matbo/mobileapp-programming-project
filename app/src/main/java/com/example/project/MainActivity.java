@@ -81,15 +81,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             Gson gson = new Gson();
             Type type = new TypeToken<List<Employee>>(){}.getType();
             ArrayList<Employee> fetchedList = gson.fromJson(json, type);
-            employees.clear();
-            employees.addAll(fetchedList);
-
-            adapter.notifyDataSetChanged();
+            writeSQLData(fetchedList);
+            updateEmployees(fetchedList);
         }
     }
 
-    private void writeSQLData() {
-        for (Employee e: employees) {
+    private void writeSQLData(List<Employee> list) {
+        for (Employee e: list) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(DatabaseTable.SQLEmployee.COLUMN_ID, e.getId());
             contentValues.put(DatabaseTable.SQLEmployee.COLUMN_NAME, e.getName());
@@ -110,9 +108,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Cursor cursor = databaseHelper.getReadableDatabase().rawQuery(
                 "SELECT * FROM " + DatabaseTable.SQLEmployee.TABLE_NAME, null, null
         );
-        List<Employee> temp = new ArrayList<>();
+        List<Employee> fetchedList = new ArrayList<>();
         while (cursor.moveToNext()) {
-            temp.add(new Employee(
+            fetchedList.add(new Employee(
                     cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_ID)),
                     cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_NAME)),
                     cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_POSITION)),
@@ -122,8 +120,12 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                     cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_DOB))
                     ));
         }
+        updateEmployees(fetchedList);
+    }
+
+    private void updateEmployees(List<Employee> list) {
         employees.clear();
-        employees.addAll(temp);
+        employees.addAll(list);
         adapter.notifyDataSetChanged();
     }
 }
