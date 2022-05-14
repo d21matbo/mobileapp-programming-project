@@ -22,4 +22,16 @@
       "dateOfBirth": 19900716
     }
   }
+}, {
+  "size": 39021,
+  "location": "Norway",
+  "category": "bert.bana@something.nihility.com",
+  "name": "Bert Banan",
+  "cost": 223356789,
+  "company": "Technical Support Tier 1",
+  "auxdata": {
+    "dob": {
+      "dateOfBirth": 19951216
+    }
+  }
 }]
