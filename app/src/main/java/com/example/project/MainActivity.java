@@ -57,7 +57,29 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_about:
+                Intent intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_update:
+                readSQLData();
+                //new JsonFile(this, this).execute(JSON_FILE);
+                return true;
+            case R.id.action_test_1:
+                item.setChecked(!item.isChecked());
+                Log.d("MainActivity", R.id.action_test_1 + "Clicked: "+item);
+                return true;
+            case R.id.action_test_2:
+                item.setChecked(!item.isChecked());
+                Log.d("MainActivity", R.id.action_test_2 + "Clicked: "+item);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //TODO: Add a way to keep the selected menuitem through intents and new start. Will probably work if code is in onCreate
+
+        /*int id = item.getItemId();
 
         if(id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
@@ -70,9 +92,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             //writeSQLData();
             //new JsonFile(this, this).execute(JSON_FILE);
             //TODO: add Json code that works with internet data.
-        }
-
-        return super.onOptionsItemSelected(item);
+        }*/
     }
 
     @Override
