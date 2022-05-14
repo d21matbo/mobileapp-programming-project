@@ -12,5 +12,17 @@
         android:orderInCategory="10"
         android:title="@string/refresh_list"
         app:showAsAction="never"/>
+    <group
+        android:checkableBehavior="single"
+        android:orderInCategory="50">
+        <item
+            android:id="@+id/action_test_1"
+            android:title="TEST_1"
+            />
+        <item
+            android:id="@+id/action_test_2"
+            android:title="TEST_2"
+            />
+    </group>
 
 </menu>
