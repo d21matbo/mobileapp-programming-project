@@ -27,4 +27,12 @@ public class DatabaseTable {
 
     static final String SQL_DELETE_TABLE_EMPLOYEE =
             String.format("DROP TABLE IF EXISTS %s", SQLEmployee.TABLE_NAME);
+
+    static final String SQL_SELECT_ALL =
+            "SELECT * FROM " + SQLEmployee.TABLE_NAME;
+
+    static final String SQL_SELECT_WHERE_TIER_2 =
+            "SELECT * FROM " + SQLEmployee.TABLE_NAME +
+                    " WHERE " + SQLEmployee.COLUMN_POSITION +
+                    " LIKE \"%tier 2%\"";
 }
