@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         databaseHelper = new DatabaseHelper(this);
         preferences = getSharedPreferences("preferences", MODE_PRIVATE);
         editor = preferences.edit();
-        Log.d("MainActivity", DatabaseTable.SQL_CREATE_TABLE_EMPLOYEE);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         adapter = new ProjectAdapter(employees);
