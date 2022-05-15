@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private final List<Employee> employees = new ArrayList<Employee>();
     private ProjectAdapter adapter;
     private DatabaseHelper databaseHelper;
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         setSupportActionBar(toolbar);
 
         databaseHelper = new DatabaseHelper(this);
+        preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        editor = preferences.edit();
         Log.d("MainActivity", DatabaseTable.SQL_CREATE_TABLE_EMPLOYEE);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
