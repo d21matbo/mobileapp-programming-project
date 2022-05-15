@@ -82,22 +82,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             default:
                 return super.onOptionsItemSelected(item);
         }
-        //TODO: Add a way to keep the selected menuitem through intents and new start. Will probably work if code is in onCreate
-
-        /*int id = item.getItemId();
-
-        if(id == R.id.action_about) {
-            Intent intent = new Intent(this, AboutActivity.class);
-
-            startActivity(intent);
-            return true;
-        }
-        if(id == R.id.action_update) {
-            readSQLData();
-            //writeSQLData();
-            //new JsonFile(this, this).execute(JSON_FILE);
-            //TODO: add Json code that works with internet data.
-        }*/
     }
 
     @Override
