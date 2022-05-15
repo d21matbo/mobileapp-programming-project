@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -21,14 +20,13 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     private final String JSON_FILE = "employees.json";
 
-    private final List<Employee> employees = new ArrayList<Employee>();
+    private final List<Employee> employees = new ArrayList<>();
     private ProjectAdapter adapter;
     private DatabaseHelper databaseHelper;
     private SharedPreferences preferences;
