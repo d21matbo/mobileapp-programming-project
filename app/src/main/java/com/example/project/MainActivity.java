@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             contentValues.put(DatabaseTable.SQLEmployee.COLUMN_NUMBER, e.getNumberRaw());
             contentValues.put(DatabaseTable.SQLEmployee.COLUMN_MAIL, e.getMail());
             contentValues.put(DatabaseTable.SQLEmployee.COLUMN_DOB, e.getDobRaw());
+            contentValues.put(DatabaseTable.SQLEmployee.COLUMN_AGE, e.getAge());
             databaseHelper.getWritableDatabase().insert(
                     DatabaseTable.SQLEmployee.TABLE_NAME,
                     null,

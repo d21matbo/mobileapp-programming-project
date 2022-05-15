@@ -11,10 +11,11 @@ public class DatabaseTable {
         final static String COLUMN_NUMBER = "number";
         final static String COLUMN_MAIL = "mail";
         final static String COLUMN_DOB = "dob";
+        final static String COLUMN_AGE = "age";
     }
 
     static final String SQL_CREATE_TABLE_EMPLOYEE =
-            String.format("CREATE TABLE %s (%s INT PRIMARY KEY, %s TEXT, %s TEXT, %s TEXT, %s INT, %s TEXT, %s INT)",
+            String.format("CREATE TABLE %s (%s INT PRIMARY KEY, %s TEXT, %s TEXT, %s TEXT, %s INT, %s TEXT, %s INT, %s INT)",
                     SQLEmployee.TABLE_NAME,
                     SQLEmployee.COLUMN_ID,
                     SQLEmployee.COLUMN_NAME,
@@ -22,7 +23,8 @@ public class DatabaseTable {
                     SQLEmployee.COLUMN_LOCATION,
                     SQLEmployee.COLUMN_NUMBER,
                     SQLEmployee.COLUMN_MAIL,
-                    SQLEmployee.COLUMN_DOB)
+                    SQLEmployee.COLUMN_DOB,
+                    SQLEmployee.COLUMN_AGE)
             ;
 
     static final String SQL_DELETE_TABLE_EMPLOYEE =
