@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 editor.putInt("activeFilterItem", R.id.action_test_1);
                 editor.putString("querySQL", DatabaseTable.SQL_SELECT_WHERE_TIER_2);
                 editor.apply();
+                readSQLData();
                 return true;
             case R.id.action_test_2:
                 item.setChecked(true);
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private void readSQLData() {
         @SuppressLint("Recycle")
         Cursor cursor = databaseHelper.getReadableDatabase().rawQuery(
-                "SELECT * FROM " + DatabaseTable.SQLEmployee.TABLE_NAME, null, null
+                preferences.getString("querySQL", DatabaseTable.SQL_SELECT_ALL), null, null
         );
         List<Employee> fetchedList = new ArrayList<>();
         while (cursor.moveToNext()) {
