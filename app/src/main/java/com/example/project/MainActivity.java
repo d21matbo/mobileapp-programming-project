@@ -51,12 +51,16 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        new JsonFile(this, this).execute(JSON_FILE);
+//        new JsonFile(this, this).execute(JSON_FILE);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(preferences.getInt("activeFilter",0));
+        if (item != null) onOptionsItemSelected(item);
+        MenuItem mItem = menu.findItem(R.id.action_update);
+        mItem.setCheckable(false);
         return true;
     }
 
@@ -68,16 +72,22 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 startActivity(intent);
                 return true;
             case R.id.action_update:
+                item.setChecked(true);
+                editor.putInt("activeFilter", 0);
+                editor.apply();
+
                 readSQLData();
                 //new JsonFile(this, this).execute(JSON_FILE);
                 return true;
             case R.id.action_test_1:
-                item.setChecked(!item.isChecked());
-                Log.d("MainActivity", R.id.action_test_1 + "Clicked: "+item);
+                item.setChecked(true);
+                editor.putInt("activeFilter", R.id.action_test_1);
+                editor.apply();
                 return true;
             case R.id.action_test_2:
-                item.setChecked(!item.isChecked());
-                Log.d("MainActivity", R.id.action_test_2 + "Clicked: "+item);
+                item.setChecked(true);
+                editor.putInt("activeFilter", R.id.action_test_2);
+                editor.apply();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
