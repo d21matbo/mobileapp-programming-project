@@ -80,6 +80,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 readSQLData();
                 //new JsonFile(this, this).execute(JSON_FILE);
                 return true;
+            case R.id.action_select_tier_1:
+                item.setChecked(true);
+                editor.putInt("activeFilterItem", R.id.action_select_tier_1);
+                editor.putString("querySQL", DatabaseTable.SQL_SELECT_WHERE_TIER_1);
+                editor.apply();
+                readSQLData();
+                return true;
             case R.id.action_select_tier_2:
                 item.setChecked(true);
                 editor.putInt("activeFilterItem", R.id.action_select_tier_2);
