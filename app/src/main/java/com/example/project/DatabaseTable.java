@@ -42,4 +42,7 @@ public class DatabaseTable {
             "SELECT * FROM " + SQLEmployee.TABLE_NAME +
                     " WHERE " + SQLEmployee.COLUMN_POSITION +
                     " LIKE \"%tier 2%\"";
+
+    static final String SQL_SELECT_WHERE_AGE_GTEQ_25 =
+            String.format("SELECT * FROM %s WHERE %s >= 25", SQLEmployee.TABLE_NAME, SQLEmployee.COLUMN_AGE);
 }

@@ -94,10 +94,12 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 editor.apply();
                 readSQLData();
                 return true;
-            case R.id.action_test_2:
+            case R.id.action_select_age_gteq_25:
                 item.setChecked(true);
-                editor.putInt("activeFilterItem", R.id.action_test_2);
+                editor.putInt("activeFilterItem", R.id.action_select_age_gteq_25);
+                editor.putString("querySQL", DatabaseTable.SQL_SELECT_WHERE_AGE_GTEQ_25);
                 editor.apply();
+                readSQLData();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

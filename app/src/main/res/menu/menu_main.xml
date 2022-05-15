@@ -24,8 +24,8 @@
             android:title="@string/show_tier_2"
             />
         <item
-            android:id="@+id/action_test_2"
-            android:title="TEST_2"
+            android:id="@+id/action_select_age_gteq_25"
+            android:title="@string/show_age_25"
             />
     </group>
 

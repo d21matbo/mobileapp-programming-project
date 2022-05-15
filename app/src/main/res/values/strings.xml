@@ -10,4 +10,5 @@
     <string name="reset_list">Reset list</string>
     <string name="show_tier_2">Show \'Tier 2\'</string>
     <string name="show_tier_1">Show \'Tier 1\'</string>
+    <string name="show_age_25"><![CDATA[Show \'Age >= 25\']]></string>
 </resources>
