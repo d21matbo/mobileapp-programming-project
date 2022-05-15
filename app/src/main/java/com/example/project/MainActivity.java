@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem item = menu.findItem(preferences.getInt("activeFilter",0));
+        MenuItem item = menu.findItem(preferences.getInt("activeFilterItem",0));
         if (item != null) onOptionsItemSelected(item);
         MenuItem mItem = menu.findItem(R.id.action_update);
         mItem.setCheckable(false);
@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 return true;
             case R.id.action_update:
                 item.setChecked(true);
-                editor.putInt("activeFilter", 0);
+                editor.putInt("activeFilterItem", 0);
+                editor.putString("querySQL", DatabaseTable.SQL_SELECT_ALL);
                 editor.apply();
 
                 readSQLData();
@@ -81,12 +82,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 return true;
             case R.id.action_test_1:
                 item.setChecked(true);
-                editor.putInt("activeFilter", R.id.action_test_1);
+                editor.putInt("activeFilterItem", R.id.action_test_1);
+                editor.putString("querySQL", DatabaseTable.SQL_SELECT_WHERE_TIER_2);
                 editor.apply();
                 return true;
             case R.id.action_test_2:
                 item.setChecked(true);
-                editor.putInt("activeFilter", R.id.action_test_2);
+                editor.putInt("activeFilterItem", R.id.action_test_2);
                 editor.apply();
                 return true;
             default:
