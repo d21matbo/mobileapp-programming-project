@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         getMenuInflater().inflate(R.menu.menu_main, menu);
         MenuItem item = menu.findItem(preferences.getInt("activeFilterItem",0));
         if (item != null) onOptionsItemSelected(item);
-        MenuItem mItem = menu.findItem(R.id.action_update);
+        MenuItem mItem = menu.findItem(R.id.action_reset);
         mItem.setCheckable(false);
         return true;
     }
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.action_update:
+            case R.id.action_reset:
                 item.setChecked(true);
                 editor.putInt("activeFilterItem", 0);
                 editor.putString("querySQL", DatabaseTable.SQL_SELECT_ALL);
@@ -80,9 +80,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 readSQLData();
                 //new JsonFile(this, this).execute(JSON_FILE);
                 return true;
-            case R.id.action_test_1:
+            case R.id.action_select_tier_2:
                 item.setChecked(true);
-                editor.putInt("activeFilterItem", R.id.action_test_1);
+                editor.putInt("activeFilterItem", R.id.action_select_tier_2);
                 editor.putString("querySQL", DatabaseTable.SQL_SELECT_WHERE_TIER_2);
                 editor.apply();
                 readSQLData();
