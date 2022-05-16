@@ -1,20 +1,26 @@
 package com.example.project;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ProjectViewHolder extends RecyclerView.ViewHolder {
-    //Add views from the list_item.xml
+    private ImageView imageView;
     private TextView nameView;
     private TextView positionView;
 
     public ProjectViewHolder(@NonNull View itemView) {
         super(itemView);
+        imageView = itemView.findViewById(R.id.employee_picture);
         nameView = itemView.findViewById(R.id.employee_name);
         positionView = itemView.findViewById(R.id.employee_position);
+    }
+
+    public ImageView getImageView() {
+        return imageView;
     }
 
     public TextView getNameView() {
