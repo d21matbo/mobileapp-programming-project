@@ -33,7 +33,10 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
     public void onBindViewHolder(@NonNull ProjectViewHolder holder, int position) {
         holder.getNameView().setText(employees.get(position).getName());
         holder.getPositionView().setText(employees.get(position).getPosition());
-        Picasso.get().load(R.drawable.no_image).transform(new PicassoCircleTransformation()).into(holder.getImageView());
+        if(employees.get(position).getImageURL() != null) {
+            Picasso.get().load(employees.get(position).getImageURL()).transform(new PicassoCircleTransformation()).into(holder.getImageView());
+        }
+        else Picasso.get().load(R.drawable.no_image).transform(new PicassoCircleTransformation()).into(holder.getImageView());
     }
 
     @Override
