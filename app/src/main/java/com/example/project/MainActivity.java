@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             contentValues.put(DatabaseTable.SQLEmployee.COLUMN_MAIL, e.getMail());
             contentValues.put(DatabaseTable.SQLEmployee.COLUMN_DOB, e.getDobRaw());
             contentValues.put(DatabaseTable.SQLEmployee.COLUMN_AGE, e.getAge());
+            contentValues.put(DatabaseTable.SQLEmployee.COLUMN_URL, e.getImageURL());
             databaseHelper.getWritableDatabase().insert(
                     DatabaseTable.SQLEmployee.TABLE_NAME,
                     null,
@@ -147,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                     cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_NUMBER)),
                     cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_MAIL)),
                     cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_DOB)),
-                    null
+                    cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_URL))
                     ));
         }
         updateEmployees(fetchedList);
