@@ -146,7 +146,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                     cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_LOCATION)),
                     cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_NUMBER)),
                     cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_MAIL)),
-                    cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_DOB))
+                    cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTable.SQLEmployee.COLUMN_DOB)),
+                    null
                     ));
         }
         updateEmployees(fetchedList);

@@ -16,14 +16,14 @@ public class Employee {
     private String mail;
     private Auxdata auxdata;
 
-    public Employee(int id, String name, String position, String location, int number, String mail, int dob) {
+    public Employee(int id, String name, String position, String location, int number, String mail, int dob, String imageURL) {
         this.id = id;
         this.name = name;
         this.position = position;
         this.location = location;
         this.number = number;
         this.mail = mail;
-        auxdata = new Auxdata(dob);
+        auxdata = new Auxdata(dob, imageURL);
     }
 
     public Employee(String name, String position) {
@@ -74,5 +74,9 @@ public class Employee {
 
     public String getMail() {
         return mail;
+    }
+
+    public String getImageURL() {
+        return auxdata.getImageURL();
     }
 }
