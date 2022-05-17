@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
@@ -31,6 +33,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
     public void onBindViewHolder(@NonNull ProjectViewHolder holder, int position) {
         holder.getNameView().setText(employees.get(position).getName());
         holder.getPositionView().setText(employees.get(position).getPosition());
+        Picasso.get().load(R.drawable.no_image).into(holder.getImageView());
     }
 
     @Override
