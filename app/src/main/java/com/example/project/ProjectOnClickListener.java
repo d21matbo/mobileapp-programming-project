@@ -35,6 +35,7 @@ public class ProjectOnClickListener implements View.OnClickListener {
         intent.putExtra("Mail", employees.get(position).getMail());
         intent.putExtra("Location", employees.get(position).getLocation());
         intent.putExtra("Number", employees.get(position).getNumber());
+        intent.putExtra("URL", employees.get(position).getImageURL());
 
         recyclerView.getContext().startActivity(intent);
     }

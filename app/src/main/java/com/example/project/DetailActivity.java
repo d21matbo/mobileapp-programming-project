@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.squareup.picasso.Picasso;
+
 public class DetailActivity extends AppCompatActivity {
 
     private ImageView profileView;
@@ -50,5 +52,8 @@ public class DetailActivity extends AppCompatActivity {
         locationView.setText(getIntent().getExtras().getString("Location", "Missing"));
         numberView.setText(getIntent().getExtras().getString("Number"));
 
+        String url = getIntent().getExtras().getString("URL");
+        if(url != null) Picasso.get().load(url).transform(new PicassoCircleTransformation()).into(profileView);
+        else Picasso.get().load(R.drawable.no_image).transform(new PicassoCircleTransformation()).into(profileView);
     }
 }
