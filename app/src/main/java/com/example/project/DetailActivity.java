@@ -51,9 +51,6 @@ public class DetailActivity extends AppCompatActivity {
         mailView.setText(getIntent().getExtras().getString("Mail", "Missing"));
         locationView.setText(getIntent().getExtras().getString("Location", "Missing"));
         numberView.setText(getIntent().getExtras().getString("Number"));
-
-        String url = getIntent().getExtras().getString("URL");
-        if(url != null) Picasso.get().load(url).transform(new PicassoCircleTransformation()).into(profileView);
-        else Picasso.get().load(R.drawable.no_image).transform(new PicassoCircleTransformation()).into(profileView);
+        Picasso.get().load(getIntent().getExtras().getString("URL")).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).transform(new PicassoCircleTransformation()).into(profileView);
     }
 }
