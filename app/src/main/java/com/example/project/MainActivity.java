@@ -74,8 +74,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 editor.putString("querySQL", DatabaseTable.SQL_SELECT_ALL);
                 editor.apply();
 
-                readSQLData();
-                //new JsonFile(this, this).execute(JSON_FILE);
+//                readSQLData();
+                databaseHelper.getWritableDatabase().execSQL("DELETE FROM "+ DatabaseTable.SQLEmployee.TABLE_NAME);
+                new JsonFile(this, this).execute(JSON_FILE);
                 return true;
             case R.id.action_select_tier_1:
                 item.setChecked(true);
