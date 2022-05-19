@@ -4,17 +4,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class Employee {
 
-    private String name;
+    private final String name;
     @SerializedName("company")
-    private String position;
+    private final String position;
     @SerializedName("size")
-    private int id;
-    private String location;
+    private final int id;
+    private final String location;
     @SerializedName("cost")
-    private int number;
+    private final int number;
     @SerializedName("category")
-    private String mail;
-    private Auxdata auxdata;
+    private final String mail;
+    private final Auxdata auxdata;
 
     public Employee(int id, String name, String position, String location, int number, String mail, int dob, String imageURL) {
         this.id = id;
@@ -24,11 +24,6 @@ public class Employee {
         this.number = number;
         this.mail = mail;
         auxdata = new Auxdata(dob, imageURL);
-    }
-
-    public Employee(String name, String position) {
-        this.name = name;
-        this.position = position;
     }
 
     private String formatNumber(){
