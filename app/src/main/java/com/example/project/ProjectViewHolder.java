@@ -8,9 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ProjectViewHolder extends RecyclerView.ViewHolder {
-    private ImageView imageView;
-    private TextView nameView;
-    private TextView positionView;
+    private final ImageView imageView;
+    private final TextView nameView;
+    private final TextView positionView;
 
     public ProjectViewHolder(@NonNull View itemView) {
         super(itemView);
