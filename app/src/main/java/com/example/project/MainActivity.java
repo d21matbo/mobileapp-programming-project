@@ -48,7 +48,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-//        new JsonFile(this, this).execute(JSON_FILE);
+        if (preferences.getBoolean("FetchFromWWW", true))
+            new JsonFile(this, this).execute(JSON_FILE);
+        else
+            readSQLData();
     }
 
     @Override
@@ -112,6 +115,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             ArrayList<Employee> fetchedList = gson.fromJson(json, type);
             writeSQLData(fetchedList);
             updateEmployees(fetchedList);
+            editor.putBoolean("FetchFromWWW", false);
+            editor.apply();
         }
     }
 
