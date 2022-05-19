@@ -24,7 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
-    private final String JSON_FILE = "employees.json";
+    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=d21matbo";
 
     private final List<Employee> employees = new ArrayList<>();
     private ProjectAdapter adapter;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         if (preferences.getBoolean("FetchFromWWW", true))
-            new JsonFile(this, this).execute(JSON_FILE);
+            new JsonTask(this).execute(JSON_URL);
         else
             readSQLData();
     }
@@ -77,9 +77,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 editor.putString("querySQL", DatabaseTable.SQL_SELECT_ALL);
                 editor.apply();
 
-//                readSQLData();
                 databaseHelper.getWritableDatabase().execSQL("DELETE FROM "+ DatabaseTable.SQLEmployee.TABLE_NAME);
-                new JsonFile(this, this).execute(JSON_FILE);
+                new JsonTask(this).execute(JSON_URL);
                 return true;
             case R.id.action_select_tier_1:
                 item.setChecked(true);
