@@ -1,17 +1,15 @@
 package com.example.project;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectOnClickListener implements View.OnClickListener {
 
-    private List<Employee> employees;
+    private final List<Employee> employees;
 
     public ProjectOnClickListener(List<Employee> employees) {
         this.employees = employees;
@@ -20,7 +18,6 @@ public class ProjectOnClickListener implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         RecyclerView recyclerView = (RecyclerView) view.getParent();
-        Log.d("MainActivity", String.format("%d : %s", recyclerView.getChildAdapterPosition(view), employees.toString()));
         sendIntent(recyclerView, recyclerView.getChildAdapterPosition(view));
     }
 
