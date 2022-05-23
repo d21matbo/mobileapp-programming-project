@@ -33,17 +33,13 @@ public class DatabaseTable {
             String.format("DROP TABLE IF EXISTS %s", SQLEmployee.TABLE_NAME);
 
     static final String SQL_SELECT_ALL =
-            "SELECT * FROM " + SQLEmployee.TABLE_NAME;
+            String.format("SELECT * FROM %s", SQLEmployee.TABLE_NAME);
 
     static final String SQL_SELECT_WHERE_TIER_1 =
-            "SELECT * FROM " + SQLEmployee.TABLE_NAME +
-                    " WHERE " + SQLEmployee.COLUMN_POSITION +
-                    " LIKE \"%tier 1%\"";
+            String.format("SELECT * FROM %s WHERE %s LIKE \"%%tier 1%%\"",SQLEmployee.TABLE_NAME,SQLEmployee.COLUMN_POSITION);
 
     static final String SQL_SELECT_WHERE_TIER_2 =
-            "SELECT * FROM " + SQLEmployee.TABLE_NAME +
-                    " WHERE " + SQLEmployee.COLUMN_POSITION +
-                    " LIKE \"%tier 2%\"";
+            String.format("SELECT * FROM %s WHERE %s LIKE \"%%tier 2%%\"",SQLEmployee.TABLE_NAME,SQLEmployee.COLUMN_POSITION);
 
     static final String SQL_SELECT_WHERE_AGE_GTEQ_25 =
             String.format("SELECT * FROM %s WHERE %s >= 25", SQLEmployee.TABLE_NAME, SQLEmployee.COLUMN_AGE);
