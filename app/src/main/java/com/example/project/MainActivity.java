@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 editor.putString("querySQL", DatabaseTable.SQL_SELECT_ALL);
                 editor.apply();
 
-                databaseHelper.getWritableDatabase().execSQL("DELETE FROM "+ DatabaseTable.SQLEmployee.TABLE_NAME);
                 new JsonTask(this).execute(JSON_URL);
                 return true;
             case R.id.action_select_tier_1:
@@ -112,11 +111,13 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             Gson gson = new Gson();
             Type type = new TypeToken<List<Employee>>(){}.getType();
             ArrayList<Employee> fetchedList = gson.fromJson(json, type);
+            databaseHelper.getWritableDatabase().execSQL("DELETE FROM "+ DatabaseTable.SQLEmployee.TABLE_NAME);
             writeSQLData(fetchedList);
             updateEmployees(fetchedList);
             editor.putBoolean("FetchFromWWW", false);
             editor.apply();
         }
+        else readSQLData();
     }
 
     private void writeSQLData(List<Employee> list) {
