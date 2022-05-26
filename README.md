@@ -39,7 +39,7 @@ The JSON data that is retrieved contain multiple objects that represents each em
    profile picture.
 
 ## Implementation Examples
-### Example 1 - Show about page
+### 1: Show about page
 ```java
 public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 	switch (item.getItemId()) {
@@ -65,7 +65,7 @@ to clean it up and provide room for additional menu items (see Image 2).
 ![](Screenshot_pressed_about.png)
 *Image 2: Show about page pressed*
 
-### Example 2 - Load and Present JSON-data
+### 2: Load and Present JSON-data
 This application uses the provided [JsonTask](https://github.com/LenaSYS/mobileapp-programming-networking/blob/master/app/src/main/java/com/example/networking/JsonTask.java)
 class to retrieve JSON-data from the internet, specifically from [JSON_URL](https://mobprog.webug.se/json-api?login=d21matbo).
 By implementing `JsonTask.JsonTaskListener` in `MainActivity.java` the following line of code can be executed.
@@ -98,7 +98,7 @@ which is then added to the adapter that displays each object inside the recycler
 ![](Screenshot_loading_json.png)
 *Image 3: Loading JSON-data*
 
-### Example 3 - Main activity RecyclerView
+### 3: Main activity RecyclerView
 The RecyclerView is added to `activity_main.xml` which is the XML document that creates the layout for the main activity.
 The document already contained code that creates a toolbar, unfortunately this toolbar is not really working with the parent constraint layout.
 The issue was fixed [here](https://github.com/d21matbo/mobileapp-programming-project/commit/41d04269177d39167f4d0e7ebcd2ac1814503be4)
@@ -129,7 +129,7 @@ The result can be seen in Image 3 as the first employee in the list is fully vis
 *Image 4: Scrolling through RecyclerView*
 
 ## Implementation Examples (VG)
-### Example 1 - Filter data shown in RecyclerView
+### 1: Filter data shown in RecyclerView
 The solutions for the requirement to filter what data shows and its sub-requirement to be able to save
 the filter goes hand in hand even though they are solved through different functionalities.
 The filtering is done using an SQLite database and querying against it,
@@ -166,7 +166,7 @@ and an indicator is added/removed to show the user what is currently being filte
 ![](Screenshot_filter_tier_2.png)
 *Image 5: Showing filtering function*
 
-### Example 2 - Detailed view
+### 2: Detailed view
 Clicking any of the items in the RecyclerView list changes the screen to a more detailed activity of the pressed item (see Image 6?).
 This functionality have been touched and modified multiple times,
 but the biggest change happened [here](https://github.com/d21matbo/mobileapp-programming-project/commit/a5d00309c397848428de9c1485570d6bfd29cb12)
